@@ -1,0 +1,41 @@
+{
+    "mongo_url": "mongo",
+    "server": {
+        "id": "",
+        "invite": "https://discord.gg/ZMGUqDbuQT",
+        "mod_log_id": "",
+        "like_log": "",
+        "admin_user_ids": ["328893900942999554"],
+        "role_ids": {
+            "bot": "",
+            "unverified": "",
+            "verified": "",
+
+            "bot_developer": "",
+            "bot_verifier": ""
+        }
+    },
+    "bot_options": {
+        "bot_tags": ["MUSICA", "AUTOROLES", "MULTIFUNCIONAL", "MODERACION", "INTERCHAT", "DIVERSION", "ECONOMIA", "DASHBOARD"],
+        "max_bot_tags": 6,
+        "max_owners_count": 4,
+        "max_summary_length": 120,
+        "min_description_length": 200,
+        "max_description_length": 500
+    },
+    "discord_client": {
+        "id": "",
+        "secret": "",
+        "token": "",
+        "prefix": ""
+    },
+    "web": {
+        "domain_with_protocol": "https://tgbotlist.danipro2007.repl.co",
+        "port": 80,
+        "ratelimit": 30,
+        "recaptcha_v2": {
+            "site_key": "",
+            "secret_key": ""
+        }
+    }
+}
