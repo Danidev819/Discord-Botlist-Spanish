@@ -1,0 +1,42 @@
+#navTop
+    span.nav.link
+        a(href="/")
+            img(src='/assets/img/logo.png')
+    span.navtag
+        a(href="/")
+            span.navtext.keep TeamGamer Botlist
+        include arrow.pug
+        if (bot && !site_key) 
+            a(href=`/bots/${bot.botid}`)
+                span.navtext #{bot.username}
+            include arrow.pug
+            a(href=`/api/embed/${bot.botid}` target="_blank")
+                span.navtext Embed
+        if ((req.baseUrl == "/user" || req.baseUrl == "/me") && userProfile)
+            a(href=`/user/${userProfile.id}`)
+                span.navtext #{userProfile.username}
+        if (req.baseUrl == "/tag")
+            a(href=`/tag/${tag}`)
+                span.navtext.capitalise #{tag}
+    a#searcher.navtag.keep.search(href='/bots/search/')
+        #search.navtext
+            i.fas.fa-search
+            |  Buscar  
+    span.dropdown
+        if (req.user)
+            a#login.navtag.keep(href='/login') #{req.user.username}##{req.user.discriminator}
+            span.dd-content
+                a(href='/join' target='_blank') Unirse al servidor
+                br
+                a(href='/add') Agregar bot
+                br
+                a(href='/api/theme') Cambiar tema
+                br
+                a(href='/about') Sobre
+                if (req.user.staff)
+                    br
+                    a(href='/admin') Dashboard
+                br
+                a(href='/logout') Cerrar sesión
+        else
+            a#login.navtag.keep(href='/login') Iniciar sesión

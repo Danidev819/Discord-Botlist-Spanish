@@ -1,0 +1,41 @@
+doctype html
+include includes/head.pug
+script(src='/assets/js/form.js')
+script(src="https://www.google.com/recaptcha/api.js" async defer)
+
+body
+    include includes/nav.pug
+    #content
+        span.header
+            h1 Agrega tu bot
+            p Complete estos detalles y presione ese botón. Asegúrese de estar en el servidor.
+        br
+        form.center
+            .input-holder
+                input#botid.input(type='text' placeholder=' ')
+                .placeholder ID del cliente
+            br
+            .input-holder
+                input#prefix.input(type='text' placeholder=' ')
+                .placeholder Prefix
+            br
+            .input-holder
+                input#description.input(maxlength=max_summary_length type='text' placeholder=' ')
+                .placeholder Resumen
+            br
+            .input-holder
+                textarea#longdesc.input(rows='7')
+                .textarea-placeholder Descripcion
+            br
+            .input-holder
+                input#note.input(maxlength=max_summary_length type='text' placeholder=' ')
+                .placeholder Nota para el admin
+            br
+            .input-holder
+                input#ownerids.input.xinput(type='text' placeholder=' ')
+                .placeholder ID de owners adicionales
+            br
+            .center-inline.g-recaptcha(data-callback='update_token' data-sitekey=site_key data-theme=req.cookies["theme"] || "light")
+            a.button(onclick='submit()') Enviar
+            br
+        br

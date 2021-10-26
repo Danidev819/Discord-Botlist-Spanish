@@ -1,0 +1,89 @@
+doctype html
+include includes/head.pug
+script(src='/assets/js/form.js')
+script(src='/assets/js/edit.js')
+script(src="https://www.google.com/recaptcha/api.js" async defer)
+link(rel="stylesheet" href="/assets/css/tags.css")
+
+body(onload="load()")
+    include includes/nav.pug
+    #content
+      span.header
+        h1 Edit
+      br
+      .sidebar
+        a.link(data-target="#edit") Editar detalles
+        a.link(data-target="#links") Cambiar enlaces
+        a.link(data-target="#server-count") Recuento de servidores
+        a.link(data-target="#manage") Administrar bot
+      .main-section
+        #edit.section
+          form.center
+            .input-holder
+              input#botid.input(type='text' placeholder=' ' value=bot.botid readonly='')
+              .placeholder ID del cliente
+            br
+            .input-holder
+              input#prefix.input(type='text' placeholder=' ' value=bot.prefix)
+              .placeholder Prefix
+            br
+            .input-holder
+              input#description.input(maxlength=max_summary_length type='text' placeholder=' ' value=bot.description)
+              .placeholder Resumen
+            br
+            .input-holder
+              textarea#longdesc.input(rows='7') #{bot.long}
+              .textarea-placeholder Descripcion
+            br
+            .input-holder
+              select#tags(data-placeholder="Select tags" multiple)
+                each tag of bot_tags
+                  if (bot.tags && bot.tags.includes(tag))
+                    option(selected) #{tag}
+                  else
+                    option #{tag}
+            br
+            .input-holder
+              if (bot.owners.primary == req.user.id)
+                input#owner-ids.input.xinput(type='text' placeholder=' ' value=String(bot.owners.additional.join(" ")))
+                .placeholder ID de owners adicionales
+              else
+                input#owner-ids.input.xinput(type='text' placeholder=' ' value=String(bot.owners.additional.join(" ")) disabled)
+                .placeholder Solo el owner principal puede editar owners adicionales
+            br
+            .center-inline.g-recaptcha(data-callback='update_token' data-sitekey=site_key data-theme=req.cookies["theme"] || "light")
+            a.button.submit-btn(onclick='submit()') Enviar
+            br
+        #links.section
+          form.center
+            .input-holder
+              input#invite.input(type='text' placeholder=' ' value=bot.invite)
+              .placeholder Invitación personalizada
+            br
+            .input-holder
+              input#support.input(type='text' placeholder=' ' value=bot.support)
+              .placeholder Servidor de soporte
+            br
+            .input-holder
+              input#website.input(type='text' placeholder=' ' value=bot.website)
+              .placeholder Sitio web
+            br
+            .input-holder
+              input#github.input(type='text' placeholder=' ' value=bot.github)
+              .placeholder Github
+            br
+            .input-holder
+              input#webhook.input(type='text' placeholder=' ' value=bot.webhook)
+              .placeholder Webhook
+            br
+            .center-inline.g-recaptcha(data-callback='update_token' data-sitekey=site_key data-theme=req.cookies["theme"] || "light")
+            a.button.submit-btn(onclick='submit()') Enviar
+            br
+
+        #server-count.section
+          span
+            a#auth.mini-btn.button Obtener token de autorización
+            a#reset.mini-btn.button Restablecer token de autorización
+        
+        #manage.section
+          a.mini-btn.button.button-red.delete(href="#confirm" data-id=bot.botid data-name=bot.username) Eliminar bot

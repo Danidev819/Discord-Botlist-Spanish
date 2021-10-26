@@ -1,0 +1,13 @@
+doctype html
+include includes/head.pug
+body(onload="load()")
+    include includes/nav.pug
+    #content
+        span.header
+            h1 TeamGamer BotList
+            p Botlist oficial del TeamGamer.
+        #searchMore
+            | Te gustaria
+            a(href='/bots/search/') buscar todos los bots
+        #cards
+            span#loading Cargando...
