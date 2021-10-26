@@ -1,3 +1,5 @@
+https://github.com/Sank6/Discord-Bot-List en español
+
 # Sobre
 Una lista de bots de discordia de código abierto.
 Hay una [guía de configuración en la wiki](https://github.com/Sank6/Discord-Bot-List/wiki/Setup-Information) si estás interesado. Pon toda la información en `config.json`.
