@@ -21,3 +21,9 @@ Si tiene algún problema, consulte las [preguntas frecuentes](https://github.com
 
 # Por hacer
 - Marque el bot como NSFW al enviar
+
+# Estrellas
+[![Stargazers repo roster for @Danidev819-TG/Discord-Botlist-Spanish](https://reporoster.com/stars/dark/notext/Danidev819-TG/Discord-Botlist-Spanish)](https://github.com/Danidev819-TG/Discord-Botlist-Spanish/stargazers)
+
+# Forkers
+[![Forkers repo roster for @Danidev819-TG/Discord-Botlist-Spanish](https://reporoster.com/forks/dark/notext/Danidev819-TG/Discord-Botlist-Spanish)](https://github.com/Danidev819-TG/Discord-Botlist-Spanish/network/members)
